@@ -1,10 +1,10 @@
 # Advent Of Code ####
 library(tidyverse)
-setwd("/Users/andreabarghetti/Desktop/Fun/Advent of Code/")
+
 
 #Day 1 ####
 #copy numbers to clipboard and read it
-input1 <- readLines("input1.txt") %>% 
+input1 <- readLines("Day1/input1.txt") %>% 
   as.numeric()
 
 # * - part 1 - *####
@@ -21,7 +21,7 @@ solution2 <- combn(input1, 3, FUN = prod, simplify = TRUE)[which(combn(input1, 3
 
 #
 #Day 2 ####
-input2 <- readLines("input2.txt")
+input2 <- readLines("Day2/input2.txt")
 
 
 # * - part 1 - *####
@@ -56,7 +56,7 @@ map_lgl(input2, function(x) {
 }) %>% unlist() %>% sum()
 #
 # Day 3 ####
-input3 <- readLines("input3.txt")
+input3 <- readLines("Day3/input3.txt")
 
 # * - part 1 - *####
 slope <- str_replace_all(input3, c("\\."="0", "#"="1"))
@@ -107,7 +107,7 @@ lapply(directions, function(direction) {
 }) %>% unlist() %>% prod()
 #
 # Day 4 ####
-input4 <- readLines("input4.txt") %>% 
+input4 <- readLines("Day4/input4.txt") %>% 
   lapply(function(x) {
   if (x=="") "NEXTPASSPT"
   else x
@@ -170,7 +170,7 @@ passidx2 <- checkpass %>%
 sum(passidx2)
 #
 # Day 5 ####
-input5 <- readLines("input5.txt")
+input5 <- readLines("Day5/input5.txt")
 
 # * - part 1 - *####
 seats <- list(a=str_sub(input5, 1,7),
@@ -192,7 +192,7 @@ all_seats %>% extract(!all_seats %in% seats$id)
 
 #
 # Day 6 ####
-input6 <- readLines("input6.txt") 
+input6 <- readLines("Day6/input6.txt") 
 
 # * - part 1 - *####
 
@@ -233,7 +233,7 @@ count_common <- sapply(answers, function(x) {
 sum(count_common)
 #
 # proiblem 7 ####
-input7 <- readLines("input7.txt")
+input7 <- readLines("Day7/input7.txt")
 
 # * - part 1 - *####
 rules <- lapply(input7, function(line) {
@@ -316,7 +316,7 @@ while(nrow(test)>0) {
 n
 #
 # Day 8 ####
-input8 <- readLines("input8.txt")
+input8 <- readLines("Day8/input8.txt")
 
 # * - part 1 - *####
 code <- lapply(input8, function(x) {
@@ -377,7 +377,7 @@ for(pos in try_fix_at) {
 }
 
 # Day 9 ####
-input9 <- readLines("input9.txt")
+input9 <- readLines("Day9/input9.txt")
 
 # * - part 1 - *####
 input9
@@ -409,7 +409,7 @@ for (i in seq_along(numbers)) {
 }
 
 # Day 10 ####
-input10 <- readLines("input10.txt")
+input10 <- readLines("Day10/input10.txt")
 
 # * - part 1 - *####
 nums <- input10 %>% as.numeric()
@@ -446,7 +446,7 @@ combos_fun(ns) %>% purrr::reduce(prod)
 
 
 # Day 11 ####
-input11 <- readLines("input11.txt")
+input11 <- readLines("Day11/input11.txt")
 
 # * - part 1 - *####
 floors <- sapply(input11, USE.NAMES = F, function(string) {
@@ -508,7 +508,7 @@ apply(to_print, 1, paste, collapse="") %>%
 # * - part 2 - *####
 
 #add extra floor
-input11 <- readLines("input11.txt")
+input11 <- readLines("Day11/input11.txt")
 
 floors <- sapply(input11, USE.NAMES = F, function(string) {
   str_split(string, "") %>%
@@ -687,7 +687,7 @@ sum(chairs=="#")
 
 
 # Day 12 ####
-input12 <- readLines("input12.txt")
+input12 <- readLines("Day12/input12.txt")
 
 # * - part 1 - *####
 actions <- sapply(input12, function(x) {
@@ -814,7 +814,7 @@ sum(abs(x), abs(y))
 
 
 # Day 13 ####
-input13 <- read_lines("input13.txt")
+input13 <- read_lines("Day13/input13.txt")
 
 # * - part 1 - *####
 bus <- input13 %>% str_split(",") %>% unlist() %>% as.numeric()
@@ -868,7 +868,7 @@ delay <- align(new,bus3[i],new-delay,delays2[i])
 new <- lcm(new,bus3[i])
 
 # Day 14 ####
-input14 <- read_lines("input14.txt")
+input14 <- read_lines("Day14/input14.txt")
 library(magrittr)
 library(binaryLogic)
 
@@ -1037,7 +1037,7 @@ memory_game(init = init,
 
 
 # Day 16: Ticket Translation ####
-input16 <- read_lines("input16.txt")
+input16 <- read_lines("Day16/input16.txt")
 
 # * - part 1 - *####
 rules <- input16[1:(grep(input16, pattern = "your ticket:")-2)]
@@ -1098,7 +1098,7 @@ results <- list("departure date" = 2,
 my_ticket[results %>% unlist()] %>% prod()
 
 # Day 17: Conway Cubes ####
-input17 <- read_lines("input17.txt")
+input17 <- read_lines("Day17/input17.txt")
 
 cubes <- input17 %>%
   lapply(function(x) {
@@ -1209,7 +1209,7 @@ simulate_expansion <- function(tidy_space, cycles) {
 simulate_expansion(tidy_space, 6)
 
 # Day 18: Operation Order ####
-input18 <- read_lines("input18.txt")
+input18 <- read_lines("Day18/input18.txt")
 
 math <- sapply(USE.NAMES = F, input18, str_remove_all, " ")
 
@@ -1302,7 +1302,7 @@ sapply(math, solve_math) %>% as.numeric() %>% sum()
 
 
 # Day 19: Monster Messages ####
-input19 <- read_lines("input19.txt")
+input19 <- read_lines("Day19/input19.txt")
 
 # * - part 1 - *####
 rules <- input19[str_detect(input19, ":")] %>%
@@ -1391,14 +1391,14 @@ all_rules[["11"]] <- " 42 31 | 42 42 31 31 | 42 42 42 31 31 31 | 42 42 42 42 31 
 # and then the same... 
 
 # Day 20: Jurassic Jigsaw ####
-input20 <- read_lines("input20.txt")
+input20 <- read_lines("Day20/input20.txt")
 # * - part 1 - *####
 library(R6)
 
 tile_names <- input20 %>% str_extract("[0-9]+") %>% na.omit() %>% as.character()
 tiles <- list()
 for (name in tile_names) {
-  tiles[[name]] <- matrix(nrow = 10,ncol = 10, data = rep(0,100))
+  tiles[[name]] <- matrix(nrow = 10,ncol = 10, data = rep("",100))
 }
 
 input20clean <- input20[input20!=""]
@@ -1408,200 +1408,447 @@ for (row in input20clean) {
     irow <- 1
     tile_name <- str_extract(row, "[0-9]+")
   } else {
-    tiles[[tile_name]][irow,] <- row %>% str_replace_all("\\.","0") %>% str_replace_all("#","1") %>%  str_split("") %>% sapply(as.numeric)
+    tiles[[tile_name]][irow,] <- row %>% 
+      # str_replace_all("\\.","0") %>% 
+      # str_replace_all("#","1") %>%  
+      str_split("") %>% sapply(as.character)
     irow <- irow + 1
   }
 }
 
-
 get_edges <- function(tile){
   up <- tile[1,] %>% 
-    as.character() %>% 
+    #as.character() %>% 
     str_c(collapse = "")
+  right <- tile[,10] %>% 
+    #as.character() %>% 
+    str_c(collapse = "") 
   down <- tile[10,] %>% 
-    as.character() %>% 
+    #as.character() %>% 
     str_c(collapse = "") %>% 
     stringi::stri_reverse()
-  right <- tile[,10] %>% 
-    as.character() %>% 
-    str_c(collapse = "") 
   left <- tile[,1] %>% 
-    as.character() %>% 
+    #as.character() %>% 
     str_c(collapse = "") %>% 
     stringi::stri_reverse()
   return(list(up=up, right=right, down=down, left=left))
 }
 
 
-Tile <- {R6Class("Tile", 
-                list(sides = list(),
+# define frame object
+# where to put the tiles
+# used R6 just for fun
+
+Frame <- R6Class(
+  classname = "Frame",
+  public =  list(
+    
+    matrix=NA,
+    
+    rotate = function() {
+      self$matrix <- t(apply(self$matrix, 2, rev))
+      invisible(self)
+    },
+    
+    flip = function() {
+      self$matrix <- self$matrix [c(dim(self$matrix)[1]:1),]
+      invisible(self) 
+    },
+  
+    initialize = function() {
+      self$matrix <- matrix(rep(c("empty"),144), nrow=12)
+    },
+    
+    print = function(...) {
+      cat(paste0(self$matrix[1,1],"-",
+                 self$matrix[1,dim(self$matrix)[2]],"\n",
+                 self$matrix[dim(self$matrix)[1],1],"-",
+                 self$matrix[dim(self$matrix)[1],dim(self$matrix)[2]]),"\n")
+      invisible(self)
+    }
+    
+  ))
+
+the_frame <- Frame$new()
+
+the_frame$matrix
+the_frame
+
+# Define the Tile object
+# used R6 just for fun
+
+Tile <- R6Class("Tile", 
+                list(edges = list(),
                      
                      ID = NA_character_,
                      
                      matrix = NA_integer_,
                      
                      available = T,
-                     
-                     side = 1,
-                     orientation=1,
                      position = NA_integer_,
                      
-                     allow_flip = 1:2,
-                     allow_orientation = 1:4,
+                     side = 1, # change when flip
                      
-                     possible_sides = NA_character_,
+                     orientation=1, # change when rotate or flip
+                     
+                     allow_flip = T,
+                     allow_rotation = T,
+                     
+                     possible_edges = NA_character_,
                      
                      rotate = function() {
                        
-                       if(length(self$allow_orientation)==1) {
-                         invisible(self) 
-                         break
+                       if(self$allow_rotation) {
+                         self$orientation <- self$orientation + 1
+                         if(self$orientation ==5) {self$orientation<-1}
+                         
+                         self$matrix <- t(apply(self$matrix, 2, rev))
+                         
+                         self$edges <- get_edges(self$matrix)
                        }
-                       
-                       self$sides <- list(up=self$sides$left,
-                                          down=self$sides$right,
-                                          left=self$sides$down,
-                                          right=self$sides$down)
-                       
-                       self$matrix <- t(apply(self$matrix, 2, rev))
                        
                        invisible(self)
                      },
                      
                      flip = function() {
                        
-                       if(length(self$allow_flip)==1) {
-                         invisible(self) 
-                         break
+                       if(self$allow_flip) {
+                         self$side <- if_else(self$side==1,-1,1)
+                         
+                         self$orientation <- case_when(self$orientation==3 ~1,
+                                                       self$orientation==1 ~3,
+                                                       T~ self$orientation)
+                         
+                         self$matrix <- self$matrix [c(dim(self$matrix)[1]:1),]
+                         
+                         self$edges <- get_edges(self$matrix)
                        }
+                       invisible(self)  
                        
-                       self$sides <- list(up=self$sides$down %>% stringi::stri_reverse(),
-                                          down=self$sides$up %>% stringi::stri_reverse(),
-                                          left=self$sides$left %>% stringi::stri_reverse() ,
-                                          right=self$sides$right %>% stringi::stri_reverse())
-
-                       self$matrix <- self$matrix [c(dim(self$matrix)[1]:1),]
-                       
-                       self$side <- if_else(self$side==1,2,1)
-                       
-                       invisible(self) 
-                     },
-                     
-                     initialize = function(sides,position=NA_integer_, matrix, ID) {
-                       stopifnot(names(sides) == c("up","right","down","left"))
-                       self$sides <- sides
-                       self$position <- position
-                       self$matrix <- matrix
-                       self$ID <- ID
-                       private$list_possible_sides()
                      },
                      
                      print = function(...) {
-                       cat("\nTile:", self$ID,".",self$side, "\n",sep = "")
+                       cat("\nTile:", self$ID,".",self$orientation,".",self$side, "\n",sep = "")
                        sapply(1:dim(self$matrix)[1], function(i) {
                          self$matrix[i,] %>% str_c(collapse = "")
                        }) %>% 
                          str_c(collapse = "\n") %>% 
                          cat()
                        invisible(self)
+                     },
+                     
+                     list_possible_edges = function() {
+                       self$possible_edges <- self$edges %>% unlist()
+                       for (i in 1:3) {
+                         self$possible_edges <- c(self$possible_edges, self$rotate()$edges %>% unlist())
+                       }
+                       self$flip()
+                       self$possible_edges <- c(self$possible_edges, self$edges %>% unlist())
+                       for (i in 1:3) {
+                         self$possible_edges <- c(self$possible_edges, self$rotate()$edges %>% unlist())
+                       }
+                       
+                       self$flip()
+                       
+                       self$possible_edges <- self$possible_edges %>% unique()
+                       return(self$possible_edges)
+                     },
+                     
+                     initialize = function(position=NA_integer_, matrix, ID) {
+                       self$position <- position
+                       self$matrix <- matrix
+                       self$edges <- get_edges(self$matrix)
+                       stopifnot(names(self$edges) == c("up","right","down","left"))
+                       self$ID <- ID
+                       self$possible_edges <- self$list_possible_edges()
+                       
                      }
-                ),
-                private = list(
-                  list_possible_sides = function() {
-                    self$possible_sides <- self$sides %>% unlist()
-                    for (i in 1:3) {
-                      self$possible_sides <- c(self$possible_sides, self$rotate()$sides %>% unlist())
-                    }
-                    self$flip()
-                    self$possible_sides <- c(self$possible_sides, self$rotate()$sides %>% unlist())
-                    for (i in 1:3) {
-                      self$possible_sides <- c(self$possible_sides, self$rotate()$sides %>% unlist())
-                    }
-                    
-                    self$flip()
-                    
-                    self$possible_sides <- self$possible_sides %>% unique()
-                  }    
                 )
-)}
+)
 
 Tiles <- imap(tiles, function(tile, id) {
   Tile$new(
     matrix = tile,
-    ID = id,
-    sides = get_edges(tile)
+    ID = id
   )
 })
 
+testTile <- Tiles[[2]]
 
-all_possible_sides <- lapply(Tiles, function(x) {
-  if (x$available) x$possible_sides
+testTile
+testTile$edges
+testTile$list_possible_edges()
+
+get_all_possible_edges <- function() {
+  lapply(Tiles, function(x) {
+    if (x$available) x$possible_edges
   }) %>%
-  purrr::reduce(c)
+    purrr::reduce(c)
+}
 
-#seems like the same side is never present more than twice
-all_possible_sides %>% table() %>% table()
+all_possible_edges <- get_all_possible_edges()
+
+#seems like the same edge is never present more than twice
+all_possible_edges %>% table() %>% table()
 
 #I will use this amount of matching edges
 sqrt(length(Tiles))*(sqrt(length(Tiles))-1)*2
 
-# for each tile and orientation, I can count how many matches I can find
-# all non edge tiles in the middle must have 4 matches
-find_tiles_by_side <- function(Tiles, side) {
+# given an edge, find the tile(s) that can be attached to it
+find_tiles_by_edge <- function(Tiles, edge) {
   map(Tiles, function(tile) {
-    if (stringi::stri_reverse(side) %in% tile$possible_sides) return(tile$ID) 
+    if (tile$available & stringi::stri_reverse(edge) %in% tile$possible_edges) return(tile$ID) 
   }) %>% unlist()
 }
 
-find_tiles_by_side(Tiles, Tiles[[1]]$sides[["up"]]) %>% setdiff(Tiles[[1]]$ID)
+find_tiles_by_edge(Tiles, "#..###...#")
+find_tiles_by_edge(Tiles, testTile$edges[["up"]]) %>% setdiff(testTile$ID)
+find_tiles_by_edge(Tiles, testTile$edges[["down"]]) %>% setdiff(testTile$ID)
 
+
+# for each tile and orientation, I can count how many matches I can find
+# all non edge tiles in the middle must have 4 matches
+# boarder tiles must have 3 or more
+# corner must have 2 or moe
+
+# for a tile, count how many edges can be matched by available edges
 count_matches <- function(tile) {
-  sapply(tile$sides, USE.NAMES = F, function(side) {
-    find_tiles_by_side(Tiles, side) %>% setdiff(tile$ID) %>% length() %>% min(1)
-  }) %>% sum()
+  map(tile$edges, function(edge) {
+    find_tiles_by_edge(Tiles, edge) %>% setdiff(tile$ID)
+  }) %>% unlist() %>% unique() %>% length()
 } 
 
+count_matches(testTile)
+map_dbl(Tiles, count_matches)
+
 is_central_tile <- function(tile) {
-  is8 = count_matches(tile) == 4
-  tile$flip()
-  is8f = count_matches(tile) == 4
-  any(is8,is8f)
+ count_matches(tile) == 4
 }
 
-# this must be >= 100! #or >=1 for test
+is_central_tile(testTile)
+
+# this must be >= 100! #or >=1 for test input
 sum(sapply(Tiles, is_central_tile))
 
-#find tiles with only one possible side
+# find tiles with only 2,3,4 matching edges
 count_of_matches <- sapply(Tiles, function(tile) {
-  a=count_matches(tile)
-  tile$flip()
-  b=count_matches(tile)
-  c(a,b)
+  count_matches(tile)
 })
 count_of_matches
 
-# there are too many 1,2 or 2,2 results (corners)
-sum(apply(count_of_matches,2,max)==2)
+# and those are the corners, edge tiles, and middle tiles
+corner_tiles <- Tiles[(count_of_matches==2)[count_of_matches==2] %>% names()]
+edge_tiles <- Tiles[(count_of_matches==2)[count_of_matches==3] %>% names()]
 
+find_directions <- function(tile) {
+  map(tile$edges, function(x) {
+    r <- find_tiles_by_edge(Tiles, x) %>% setdiff(tile$ID)
+    if (length(r) >0) {r}
+  }
+  ) %>% unlist() %>% names()
+}
 
-# make method to fix tile to the one found position, side, or orientation
+find_directions(testTile)
 
+add_position <- function(direction) {
+  recode(direction, 
+         "up"="-1,0",
+         "down"="1,0",
+         "left"="0,-1",
+         "right"="0,1") %>% 
+    str_split(",", simplify = T) %>% 
+    as.integer()
+}
 
+add_position("right")
 
-#set image space
-image_space <-rlang::env(
-  list()
-)
+# pick the first corner and put it in the right orientation and position
+corner1 <- corner_tiles[[1]]
+
+corner1$position <- (lapply(find_directions(corner1), add_position) %>% 
+                       purrr::reduce(`+`) ==1 )%>% 
+  ifelse(1,dim(the_frame$matrix)[1])
+
+corner1$available <- F
+corner1$allow_flip <- F
+corner1$allow_rotation <- F
+
+the_frame$matrix[corner1$position[1],corner1$position[2]] <- corner1$ID
+
+# Add tile to frame
+# 1 pick a tile on the frame
+# pick a direction where there are available tiles
+# find the tile and put it in the right position on the frame
+# update tile position, allow roate etc
+add_tile <- function(tile) {
+  
+  dir <- find_directions(tile)[1]
+  
+  found <- tryCatch(
+    error = function(condition) {
+      stop("no tile found in this direction", call. = T)
+    },
+    expr = {Tiles[[tile$edges[dir] %>% find_tiles_by_edge(Tiles, .) %>% setdiff(tile$ID)]]}
+  )
+  try <- 0
+  while(found$edges[dir] %>% stringi::stri_reverse() != tile$edges[dir]) {
+    try <- try+1
+    found$rotate()
+    if (try==4) {found$flip()}
+    if (try >9) {stop("deh!")}
+  }
+  found$rotate()$rotate()
+  found$position <- tile$position+add_position(dir)
+  found$available <- F
+  the_frame$matrix[found$position[1],found$position[2]] <- found$ID
+  found
+}
+
+last_tile <- corner1
+while(sum(the_frame$matrix=="empty")>0) {
+  last_tile <- add_tile(last_tile)
+}
+
+# OF FUCKING YEAH
+as.integer(c(the_frame$matrix[1,1],
+the_frame$matrix[12,1],
+the_frame$matrix[1,12],
+the_frame$matrix[12,12])) %>% prod() %>% format(scientific=F)
+
 
 
 # * - part 2 - *####
+sea_monster <- read_lines("Day20/seamonster.txt") %>% str_replace_all(" ",".") 
+
+sea_monsterL <- list(hidden = sea_monster,
+                     regex = sea_monster %>% 
+                       map_chr(str_replace_all,"[#]","[#]"),
+                     found =sea_monster %>% 
+                       map_chr(str_replace_all,"[#O]","O")
+)
+
+# crazy regex but I got it worked
+#there must be an easy way
+#must substitute A and B with str_locate indexes later
+sea_monsterLx <- list(hidden = sea_monster,
+                    regex = sea_monster %>% 
+                      map_chr(str_replace_all,"[#]","[#]")%>% 
+                      map_chr(function(x) {
+                        pat <- str_replace_all(x,"(\\.+)","(\\1)")
+                        str_c("^(.{A})",pat,"(.{B})$")}),
+                    found =sea_monster %>% 
+                      map_chr(str_replace_all,"[#O]","O") %>% 
+                      map_chr(function(x) {
+                        pat <- x
+                        i <- 0
+                        for (i in 1:str_count(pat,"\\.+")) {
+                          pat <- str_replace(pat, "\\.+",str_c("\\\\",as.character(i+1)))
+                          i<-i
+                        }
+                        str_c("\\1",pat,"\\",i+2)
+                      })
+)
+
+cat(str_c(sea_monsterL$hidden,collapse = "\n"))
+
+#create the image
+image_matrix <- lapply(1:dim(the_frame$matrix)[1], function(i) {
+  lapply(Tiles[the_frame$matrix[i,]], function(tile) {tile$matrix[2:9,2:9]}) %>% 
+    purrr::reduce(cbind)
+}) %>% purrr::reduce(rbind) 
+
+rotate_matrix <- function(matrix) {
+  t(apply(matrix, 2, rev))
+}
+flip_matrix <- function(matrix) {
+  matrix [c(dim(matrix)[1]:1),]
+}
+
+print_image <- function(matrix) {
+  matrix %>% 
+    apply(1, str_c, collapse="")
+}
+
+image <- print_image(image_matrix)
+
+# for testing
+testimage_matrix <- read_lines("Day20/input20test2.txt") %>% 
+  lapply(str_split,"",simplify=T) %>% 
+  purrr::reduce(rbind)
+testimage_matrix <- flip_matrix(testimage_matrix)
+testimage_matrix <- rotate_matrix(testimage_matrix)
+testimage <- print_image(testimage_matrix)
+testimage2 <- print_image(cbind(testimage_matrix,testimage_matrix))
+
+
+detect_monsters <- function(image=testimage2) {
+  walk(2:(length(image)-1), function(line) {
+    locate2all <- str_locate_all(image[line], sea_monsterL$regex[2])
+    
+    locate2 <- locate2all[[1]]
+    
+    #for (i in )
+    if (length(locate2)==0) {return(F)} else {locate2 <- locate2[1,]}
+    
+    if (length(locate2)==2) {
+      locate1 <- str_detect(str_sub(image[line-1],locate2[1],locate2[2]), sea_monsterL$regex[1])
+      locate3 <- str_detect(str_sub(image[line+1],locate2[1],locate2[2]), sea_monsterL$regex[3])
+        
+        if (locate1&locate3) {
+          # add replace # with 0 part
+          image[line-1] <<- str_replace(image[line-1], 
+                      sea_monsterLx$regex[1] %>% 
+                        str_replace("A", as.character(locate2[1]-1)) %>% 
+                        str_replace("B", as.character(nchar(image[1])-locate2[2])),
+                      sea_monsterLx$found[1])
+          image[line] <<- str_replace(image[line], 
+                                       sea_monsterLx$regex[2] %>% 
+                                         str_replace("A", as.character(locate2[1]-1)) %>% 
+                                         str_replace("B", as.character(nchar(image[1])-locate2[2])),
+                                       sea_monsterLx$found[2])
+          image[line+1] <<- str_replace(image[line+1], 
+                                     sea_monsterLx$regex[3] %>% 
+                                       str_replace("A", as.character(locate2[1]-1)) %>% 
+                                       str_replace("B", as.character(nchar(image[1])-locate2[2])),
+                                     sea_monsterLx$found[3])
+          
+          #return(T)
+          } else return(F)
+ 
+    }else return(F)
+  }) #%>% sum() 
+  return(image)
+}
+
+detect_monsters(sea_monsterL$hidden)
+detect_monsters(sea_monsterL$found)
+detect_monsters(testimage)
+detect_monsters(testimage2) #this must be fixed with str_locate_all
+testimage2 <- detect_monsters(testimage2)
+detect_monsters(testimage2)
+
+sum(detect_monsters(testimage) %>% str_count("#"))
+
+image_matrix <- rotate_matrix(image_matrix)
+image_matrix <- flip_matrix(image_matrix)
+image <-  print_image(image_matrix)
+
+image <- detect_monsters(image)
+
+sum(detect_monsters(image) %>% str_count("#"))
+
+# need to add autorotate and auto iteretae detect monster a few times detect
+# done interactively to get the solution
+
+# this was CRAZY!
+
 # Day 21: Allergen Assessment ####
-input21 <- read_lines("input21.txt")
+input21 <- read_lines("Day21/input21.txt")
 # * - part 1 - *####
 # * - part 2 - *####
 
 # Day 22: Crab Combat ####
-input22 <- read_lines("input22.txt")
+input22 <- read_lines("Day22/input22.txt")
 
 # * - part 1 - *####
 deck1 <- input22[2:26] %>% as.numeric()
